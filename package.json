@@ -1,0 +1,26 @@
+{
+  "name": "cors-demo",
+  "version": "1.0.0",
+  "description": "cors-demo",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:be": "node server.js",
+    "start:fe": "node serverfe.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhiguangphoenix/cors-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhiguangphoenix/cors-demo/issues"
+  },
+  "homepage": "https://github.com/zhiguangphoenix/cors-demo#readme"
+}

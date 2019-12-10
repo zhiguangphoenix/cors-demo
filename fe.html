@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Cors-Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="http://192.168.0.103:3000/addcookie"></script>
+  <link rel="shortcut icon" href="#" />
+</head>
+<body>
+  <div>
+    <button id="simple">跨域简单请求</button>
+    <button id="not-simple">跨域非简单请求</button>
+    <button id="with-cookie">跨域带cookie</button>
+  </div>
+  <script>
+    function simpleAjax() {
+      $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/simpleajax',
+      }).done(function (data) {
+        console.log(data);
+      })
+    }
+    function notSimpleAjax() {
+      $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/notsimpleajax',
+        headers: {
+          "X-header": "notsimple"
+        }
+      }).done(function (data) {
+        console.log(data);
+      })
+    }
+    function withCookie() {
+      $.ajax({
+        type: 'GET',
+        url: 'http://192.168.0.103:3000/withcookie',
+        xhrFields: {
+          withCredentials: true
+        }
+      }).done(function (data) {
+        console.log(data);
+      })
+    }
+
+    const simpleBtn = document.getElementById('simple');
+    const notSimpleBtn = document.getElementById('not-simple');
+    const withCookieBtn = document.getElementById('with-cookie');
+
+    simpleBtn.addEventListener(
+      'click',
+      simpleAjax,
+      false
+    );
+    notSimpleBtn.addEventListener(
+      'click',
+      notSimpleAjax,
+      false
+    );
+    withCookieBtn.addEventListener(
+      'click',
+      withCookie,
+      false
+    )
+  </script>
+</body>
+</html>
